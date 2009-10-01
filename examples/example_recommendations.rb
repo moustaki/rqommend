@@ -31,29 +31,41 @@ Rqommend::Can.new "
     ",
     "<%= result['input_name'] %> and <%= result['output_name'] %> were both part of the 70s Manchester scene"
 
-# Artists on Dischord records are related
+# Artists on independent record labels are related
 Rqommend::Can.new "
       SELECT * WHERE {
         @INPUT
-          <http://dbpedia.org/ontology/label> <http://dbpedia.org/resource/Dischord_Records> ;
+          <http://dbpedia.org/ontology/label> ?label ;
           <http://dbpedia.org/property/name> ?input_name .
         ?OUTPUT
-           <http://dbpedia.org/ontology/label> <http://dbpedia.org/resource/Dischord_Records> ;
+           <http://dbpedia.org/ontology/label> ?label ;
           <http://dbpedia.org/property/name> ?output_name .
-        <http://dbpedia.org/resource/Dischord_Records> <http://dbpedia.org/property/abstract> ?abstract .
+        ?label
+          <http://xmlns.com/foaf/0.1/name> ?label_name ;
+          a <http://dbpedia.org/class/yago/IndependentRecordLabels> ;
+          <http://dbpedia.org/property/abstract> ?abstract .
         FILTER (
           (@INPUT != ?OUTPUT) &&
           (langMatches(lang(?abstract), 'en') || lang(?abstract) = '' )
         )
       }
     ",
-    "<%= result['input_name'] %> and <%= result['output_name'] %> were both signed on Dischord Records. <%= result['abstract'] %>"
+    "<%= result['input_name'] %> and <%= result['output_name'] %> were both signed on <%= result['label_name'] %>. <%= result['abstract'] %>"
 
 # Trying these rules out
 require 'pp'
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Aretha_Franklin'
-pp resource.recommendations
+recommendations = resource.recommendations
+puts '-------------------------------------------'
+puts 'A random recommendation for Aretha Franklin'
+pp recommendations[rand(recommendations.size)]
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Joy_Division'
-pp resource.recommendations
+recommendations = resource.recommendations
+puts '-------------------------------------------'
+puts 'A random recommendation for Joy Division'
+pp recommendations[rand(recommendations.size)]
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Minor_Threat'
-pp resource.recommendations
+recommendations = resource.recommendations
+puts '-------------------------------------------'
+puts 'A random recommendation for Minor Threat'
+pp recommendations[rand(recommendations.size)]
