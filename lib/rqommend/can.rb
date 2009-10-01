@@ -5,7 +5,7 @@ module Rqommend
     @@cans = []
 
     def initialize(query, template, endpoint = 'http://dbpedia.org/sparql')
-      raise "Canned query needs one ?INPUT" if query.split("?INPUT").size == 1
+      raise "Canned query needs one @INPUT" if query.split("@INPUT").size == 1
       raise "Canned query needs one ?OUTPUT" if query.split("?OUTPUT").size == 1
       @query = query
       @template = template
