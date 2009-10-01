@@ -1,1 +1,17 @@
+Rqommend by Yves Raimond (developed as part of the NoTube European project)
 
+Example output:
+
+$ ruby example_recommendations.rb 
+-------------------------------------------
+A random recommendation for Aretha Franklin
+["http://dbpedia.org/resource/Esham",
+ "Franklin, Aretha Louise and Esham are both based in Detroit"]
+-------------------------------------------
+A random recommendation for Joy Division
+["http://dbpedia.org/resource/The_Hollies",
+ "Joy Division and The Hollies were both part of the 70s Manchester scene"]
+-------------------------------------------
+A random recommendation for Minor Threat
+["http://dbpedia.org/resource/Wig_Out_at_Denko%27s",
+ "Minor Threat and Wig Out At Denkos were both signed on Dischord Records. Dischord Records is a Washington, D.C.-based independent record label specializing in the independent punk music of the D.C.-area music scene. The label is co-owned by Ian MacKaye and Jeff Nelson, who founded Dischord in 1980 to release Minor Disturbance by The Teen Idles. The label is most notable for having maintained a strict do-it-yourself ethic, producing all of its albums by itself and selling them at discount prices without the help of major distributors. Dischord continues to release records by bands from Washington D.C., and to document and support the Washington D.C. music scene. Dischord was a local label in the early days of hardcore, and is one of the more famous independent labels, along with the likes of Alternative Tentacles, SST Records, and Touch &amp; Go Records. Early releases by Dischord were relatively well-produced compared to other punk recordings of the time. Minor Threat's work is an example of these higher production values."]
