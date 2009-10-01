@@ -31,10 +31,29 @@ Rqommend::Can.new "
     ",
     "<%= result['input_name'] %> and <%= result['output_name'] %> were both part of the 70s Manchester scene"
 
+# Artists on Dischord records are related
+Rqommend::Can.new "
+      SELECT * WHERE {
+        @INPUT
+          <http://dbpedia.org/ontology/label> <http://dbpedia.org/resource/Dischord_Records> ;
+          <http://dbpedia.org/property/name> ?input_name .
+        ?OUTPUT
+           <http://dbpedia.org/ontology/label> <http://dbpedia.org/resource/Dischord_Records> ;
+          <http://dbpedia.org/property/name> ?output_name .
+        <http://dbpedia.org/resource/Dischord_Records> <http://dbpedia.org/property/abstract> ?abstract .
+        FILTER (
+          (@INPUT != ?OUTPUT) &&
+          (langMatches(lang(?abstract), 'en') || lang(?abstract) = '' )
+        )
+      }
+    ",
+    "<%= result['input_name'] %> and <%= result['output_name'] %> were both signed on Dischord Records. <%= result['abstract'] %>"
 
 # Trying these rules out
 require 'pp'
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Aretha_Franklin'
 pp resource.recommendations
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Joy_Division'
+pp resource.recommendations
+resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Minor_Threat'
 pp resource.recommendations
