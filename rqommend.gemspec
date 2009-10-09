@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "rqommend"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.date = "2009-10-01"
   s.summary = "Rqommend"
   s.email = "yves@dbtune.org"
