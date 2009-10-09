@@ -16,7 +16,7 @@ module Rqommend
       Can.cans.each do |can|
         query = can.query
         query = query.split("@INPUT").join("<" + @uri + ">")
-        store = FourStore::Store.new can.endpoint
+        store = FourStore::Store.new can.endpoint, can.options
         results = store.select(query)
         template = can.template
         results.each do |result|

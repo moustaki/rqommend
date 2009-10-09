@@ -3,6 +3,9 @@
 require '../lib/rqommend/can'
 require '../lib/rqommend/resource'
 
+DEFAULT_ENDPOINT = 'http://dbpedia.org/sparql'
+DEFAULT_OPTIONS = nil
+
 # Artists that are based in Detroit are related
 Rqommend::Can.new "
     SELECT *
