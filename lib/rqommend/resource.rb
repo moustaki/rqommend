@@ -21,10 +21,14 @@ module Rqommend
         template = can.template
         results.each do |result|
           explanation = handle_template(template, result)
-          recommendations << [result["OUTPUT"], explanation]
+          recommendations << { 'recommendation' => result["OUTPUT"], 'explanation' => explanation }
         end
       end
       recommendations
+    end
+
+    def recommendation
+      recommendations[rand(recommendations.size)]
     end
 
     private

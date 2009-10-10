@@ -58,17 +58,14 @@ Rqommend::Can.new "
 # Trying these rules out
 require 'pp'
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Aretha_Franklin'
-recommendations = resource.recommendations
 puts '-------------------------------------------'
 puts 'A random recommendation for Aretha Franklin'
-pp recommendations[rand(recommendations.size)]
+pp resource.recommendation
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Joy_Division'
-recommendations = resource.recommendations
 puts '-------------------------------------------'
 puts 'A random recommendation for Joy Division'
-pp recommendations[rand(recommendations.size)]
+pp resource.recommendation
 resource = Rqommend::Resource.new 'http://dbpedia.org/resource/Minor_Threat'
-recommendations = resource.recommendations
 puts '-------------------------------------------'
 puts 'A random recommendation for Minor Threat'
-pp recommendations[rand(recommendations.size)]
+pp resource.recommendation
